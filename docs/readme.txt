@@ -6,6 +6,14 @@ Python.Web.Development.with.Django
 
    1. p100
    
+   2. 
+
+   --create new repos
+   https://github.com/repositories/new
+
+   git remote add origin git@github.com:yangjiandong/mysite.git
+   git push origin master
+   
 2011.12.24
 -----------
 
