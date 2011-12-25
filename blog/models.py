@@ -10,7 +10,8 @@ class BlogPost(models.Model):
     body = models.TextField()
     timestamp = models.DateTimeField()
 
-    # class Meta:
+    class Meta:
+        ordering = ('-timestamp',)
     #     verbose_name = _('BlogPost')
     #     verbose_name_plural = _('BlogPosts')
 
@@ -25,4 +26,7 @@ class BlogPost(models.Model):
     
     # TODO: Defne custom methods here
 
-admin.site.register(BlogPost)    
+class BlogPostAdmin(admin.ModelAdmin):
+    list_display = ('title', 'timestamp')
+
+admin.site.register(BlogPost, BlogPostAdmin)    
