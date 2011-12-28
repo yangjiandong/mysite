@@ -30,3 +30,12 @@ class BlogPostAdmin(admin.ModelAdmin):
     list_display = ('title', 'timestamp')
 
 admin.site.register(BlogPost, BlogPostAdmin)    
+
+class Author(models.Model):
+    name = models.CharField(max_length=100)
+
+class Book(models.Model):
+    title = models.CharField(max_length=100)
+    author = models.ForeignKey(Author)
+    
+    
