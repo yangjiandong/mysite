@@ -11,3 +11,11 @@ def archive(request):
 	c = Context({'posts':posts})
 	return HttpResponse(t.render(c))
 	
+from mysite.blog.models import Book
+from datetime import datetime
+from somewhere import some_function_returing_a_queryset
+
+def q(request):
+	book_queryset = some_function_returing_a_queryset()
+	today = datetime.now()
+	overdue_books = book_queryset.filter(due_date__lt=today)	

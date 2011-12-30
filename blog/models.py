@@ -36,6 +36,34 @@ class Author(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
-    author = models.ForeignKey(Author)
-    
-    
+    genre = models.CharField(max_length=100)
+    num_pages = models.IntegerField()
+    authors = models.ManyToManyField(Author)
+
+    def __unicode__(self):
+        return self.title
+
+    # class Meta:
+        # abstract = True
+
+#django.core.exceptions.FieldError: Local field 'authors' in class 'SimthBook' 
+#clashes with field of similar name from base class 'Book'
+# class SimthBook(Book):
+    # authors = models.ManyToManyField(Author,limit_choices_to={
+        # 'name__endswith':'Smith' })
+
+class Person(models.Model):
+    first = models.CharField(max_length=100)
+    last = models.CharField(max_length=100)
+    middle = models.CharField(max_length=100, blank=True)
+
+    class Meta:
+        ordering = ['last','first','middle']
+        unique_together = ['first','last','middle']
+        verbose_name_plural = 'people'
+
+class PersonAdmin(admin.ModelAdmin):
+    list_display = ('first', 'last', 'middle')
+
+admin.site.register(Person, PersonAdmin)
+        
