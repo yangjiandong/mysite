@@ -1,6 +1,16 @@
 Python.Web.Development.with.Django
 ==================================
 
+2011.12.31
+----------
+
+   1. 
+
+   manage shell
+   raise AlreadyRegistered('The model %s is already registered' % model.__name__)
+   
+   manage.py dumpdata --indent=4 blog>blog.json
+   
 2011.12.30
 ----------
 
