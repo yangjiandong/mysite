@@ -9,6 +9,8 @@ urlpatterns = patterns('',
     # url(r'^$', 'mysite.views.home', name='home'),
     url(r'^blog/', include('mysite.blog.urls')),
 
+    url(r'^photo/', include('mysite.photo.urls')),
+    
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
